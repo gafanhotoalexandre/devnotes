@@ -1,0 +1,28 @@
+:root {
+  --bg-color: #121214;
+  --primary-color: #202024;
+  --secondary-color: #7c7c8a;
+
+  --blue-color: #38bdf8;
+  --orange-color: #fb923c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+input,
+textarea {
+  color: #ddd;
+}
+
+button {
+  cursor: pointer;
+}

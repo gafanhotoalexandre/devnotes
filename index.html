@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevNotes</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>DevNotes</h1>
+        <div id="search-container">
+          <i class="ph ph-magnifying-glass"></i>
+          <input type="text" id="search-input" placeholder="Busque por uma nota...">
+        </div>
+
+        <button id="export-notes">
+          Exportar CSV <i class="ph ph-download-simple"></i>
+        </button>
+      </header>
+
+      <section id="add-note-container">
+        <input type="text" id="note-content" placeholder="O que deseja anotar?">
+        <button class="add-note">
+          <i class="ph ph-plus"></i>
+        </button>
+      </section>
+
+      <section id="notes-container">
+        <div class="note fixed">
+          <textarea placeholder="Adicione algum texto..."></textarea>
+          <i class="ph ph-push-pin-simple"></i>
+          <i class="ph ph-x"></i>
+          <i class="ph ph-file-plus"></i>
+        </div>
+
+        <div class="note">
+          <textarea placeholder="Adicione algum texto..."></textarea>
+          <i class="ph ph-push-pin-simple"></i>
+          <i class="ph ph-x"></i>
+          <i class="ph ph-file-plus"></i>
+        </div>
+
+        <div class="note">
+          <textarea placeholder="Adicione algum texto..."></textarea>
+          <i class="ph ph-push-pin-simple"></i>
+          <i class="ph ph-x"></i>
+          <i class="ph ph-file-plus"></i>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+/* Add Note */
+#app #add-note-container {
+  display: flex;
+  gap: 1rem;
+  width: 25rem;
+  margin: 2rem auto;
+}
+
+#app #add-note-container input,
+#app #add-note-container button {
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+#app #add-note-container input {
+  flex: 1;
+  border: 1px solid var(--secondary-color);
+  background-color: transparent;
+}
+
+#app #add-note-container button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  transition: all ease .2s;
+}
+
+#app #add-note-container button:hover {
+  opacity: .8;
+}
+
+
+/* Note */
+#app #notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  padding: 0 2rem;
+  gap: 2rem;
+}
+
+#app .note {
+  min-height: 12.5rem;
+  padding: 1rem;
+  background-color: transparent;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.75rem;
+  color: #fff;
+  position: relative;
+}
+
+#app .note textarea {
+  background-color: transparent;
+  resize: none;
+  border: none;
+
+  height: 100%;
+  outline: none;
+}
+
+/* Icons */
+#app .note i {
+  cursor: pointer;
+  transition: all ease .2s;
+}
+
+#app .note .ph-push-pin-simple {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  background-color: var(--primary-color);
+  border-radius: 0.25rem;
+}
+
+#app .note:hover > i {
+  opacity: 1;
+}
+
+#app .note .ph-x,
+#app .note .ph-file-plus {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  color: var(--secondary-color);
+  opacity: 0;
+}
+#app .note .ph-x:hover,
+#app .note .ph-file-plus:hover {
+  transform: scale(1.5);
+  color: #e2e8f0;
+}
+
+#app .note .ph-file-plus {
+  top: 40px;
+}
+
+#app .note.fixed {
+  background-color: var(--primary-color);
+}
+#app .note.fixed .ph-push-pin-simple {
+  background-color: var(--bg-color);
+}
