@@ -1,5 +1,5 @@
 import { Note } from "../types/Note"
-import { toggleFixNote } from "./noteActions"
+import { deleteNote, toggleFixNote } from "./noteActions"
 
 import { getNotes, saveNotes } from "./noteStorage"
 
@@ -55,10 +55,23 @@ function createNote(id: number, content: string, fixed?: boolean) {
 
   element.appendChild(pinIcon)
 
+  const deleteIcon = document.createElement('i')
+  deleteIcon.classList.add(...['ph', 'ph-file-plus'])
+  element.appendChild(deleteIcon)
+
+  const duplicateIcon = document.createElement('i')
+  duplicateIcon.classList.add(...['ph', 'ph-x'])
+  element.appendChild(duplicateIcon)
+
   if (fixed) element.classList.add('fixed')
 
+  // Element Events
   element.querySelector('.ph-push-pin-simple')?.addEventListener('click', () => {
     toggleFixNote(id)
+  })
+
+  element.querySelector('.ph-x')?.addEventListener('click', () => {
+    deleteNote(id, element, notesContainer)
   })
 
   return element

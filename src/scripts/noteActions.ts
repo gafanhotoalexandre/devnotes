@@ -10,3 +10,9 @@ export function toggleFixNote(id: number) {
   saveNotes(notes)
   showNotes()
 }
+
+export function deleteNote(id: number, element: HTMLDivElement, notesContainer: HTMLElement) {
+  const notes = getNotes().filter(note => note.id !== id)
+  saveNotes(notes)
+  notesContainer.removeChild(element)
+}
