@@ -1,5 +1,5 @@
 import { Note } from "../types/Note"
-import { copyNote, deleteNote, toggleFixNote } from "./noteActions"
+import { copyNote, deleteNote, toggleFixNote, updateNote } from "./noteActions"
 
 import { getNotes, saveNotes } from "./noteStorage"
 
@@ -66,6 +66,12 @@ export function createNote(id: number, content: string, fixed?: boolean) {
   if (fixed) element.classList.add('fixed')
 
   // Element Events
+  element.querySelector('textarea')!.addEventListener('keyup', (e) => {
+    // const noteContent = e.target.value
+    const target = e.target as HTMLTextAreaElement
+    updateNote(id, target.value)
+  })
+
   element.querySelector('.ph-push-pin-simple')?.addEventListener('click', () => {
     toggleFixNote(id)
   })

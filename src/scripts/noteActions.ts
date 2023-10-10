@@ -33,3 +33,13 @@ export function copyNote(id: number, notesContainer: HTMLElement) {
   notes.push(noteObject)
   saveNotes(notes)
 }
+
+// Update note
+export function updateNote(id: number, newContent: string) {
+  const notes = getNotes()
+  const targetNote = notes.filter(note => note.id === id)[0]
+
+  targetNote.content = newContent
+
+  saveNotes(notes)
+}
