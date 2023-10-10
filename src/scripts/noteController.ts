@@ -1,5 +1,5 @@
 import { Note } from "../types/Note"
-import { deleteNote, toggleFixNote } from "./noteActions"
+import { copyNote, deleteNote, toggleFixNote } from "./noteActions"
 
 import { getNotes, saveNotes } from "./noteStorage"
 
@@ -36,11 +36,11 @@ function addNote() {
   noteInput.value = ''
 }
 
-function generateNoteId(): number {
+export function generateNoteId(): number {
   return Math.floor(Math.random() * 5000)
 }
 
-function createNote(id: number, content: string, fixed?: boolean) {
+export function createNote(id: number, content: string, fixed?: boolean) {
   const element = document.createElement('div')
   element.classList.add('note')
 
@@ -72,6 +72,10 @@ function createNote(id: number, content: string, fixed?: boolean) {
 
   element.querySelector('.ph-x')?.addEventListener('click', () => {
     deleteNote(id, element, notesContainer)
+  })
+
+  element.querySelector('.ph-file-plus')?.addEventListener('click', () => {
+    copyNote(id, notesContainer)
   })
 
   return element
