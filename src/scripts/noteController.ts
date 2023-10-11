@@ -1,9 +1,10 @@
 import { Note } from "../types/Note"
-import { copyNote, deleteNote, toggleFixNote, updateNote } from "./noteActions"
+import { copyNote, deleteNote, searchNotes, toggleFixNote, updateNote } from "./noteActions"
 
 import { getNotes, saveNotes } from "./noteStorage"
 
 // Elements
+const searchInput = document.querySelector('#search-input') as HTMLInputElement
 const notesContainer = document.querySelector('#notes-container') as HTMLElement
 const noteInput = document.querySelector('#note-content') as HTMLInputElement
 const addNoteBtn = document.querySelector('.add-note') as HTMLButtonElement
@@ -68,8 +69,8 @@ export function createNote(id: number, content: string, fixed?: boolean) {
   // Element Events
   element.querySelector('textarea')!.addEventListener('keyup', (e) => {
     // const noteContent = e.target.value
-    const target = e.target as HTMLTextAreaElement
-    updateNote(id, target.value)
+    const { value: textContent } = e.target as HTMLTextAreaElement
+    updateNote(id, textContent)
   })
 
   element.querySelector('.ph-push-pin-simple')?.addEventListener('click', () => {
@@ -87,12 +88,21 @@ export function createNote(id: number, content: string, fixed?: boolean) {
   return element
 }
 
-function cleanNotes(){
+export function cleanNotes(){
   notesContainer.replaceChildren()
 }
 
 // Event
 addNoteBtn.addEventListener('click', () => addNote())
+
+searchInput.addEventListener('keyup', (e) => {
+  const { value: search } = e.target as HTMLInputElement
+  searchNotes(search, notesContainer)
+})
+
+noteInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') addNote()
+})
 
 // boot
 showNotes()

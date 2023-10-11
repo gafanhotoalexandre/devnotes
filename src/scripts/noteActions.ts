@@ -1,4 +1,4 @@
-import { createNote, generateNoteId, showNotes } from "./noteController";
+import { cleanNotes, createNote, generateNoteId, showNotes } from "./noteController";
 import { getNotes, saveNotes } from "./noteStorage";
 
 export function toggleFixNote(id: number) {
@@ -42,4 +42,23 @@ export function updateNote(id: number, newContent: string) {
   targetNote.content = newContent
 
   saveNotes(notes)
+}
+
+// Search note
+export function searchNotes(searchQuery: string, notesContainer:HTMLElement) {
+  const notes = getNotes()
+  const searchResults = notes.filter(note => note.content.includes(searchQuery))
+
+  if (searchQuery !== '') {
+    cleanNotes()
+
+    searchResults.forEach(note => {
+      const noteElement = createNote(note.id, note.content)
+      notesContainer.appendChild(noteElement)
+    })
+    return
+  }
+
+  cleanNotes()
+  showNotes()
 }
