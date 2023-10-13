@@ -1,0 +1,22 @@
+#toggle-theme {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+#toggle-theme i {
+  cursor: pointer;
+  transition: all ease .2s;
+
+  color: var(--secondary-color);
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: .75rem;
+}
+
+#toggle-theme i:hover {
+  transform: scale(1.1);
+}
