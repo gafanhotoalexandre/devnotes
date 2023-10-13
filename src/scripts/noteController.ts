@@ -42,7 +42,7 @@ export function generateNoteId(): number {
 }
 
 export function createNote(id: number, content: string, fixed?: boolean) {
-  const element = document.createElement('div')
+  const element = document.createElement('article')
   element.classList.add('note')
 
   const textarea = document.createElement('textarea')

@@ -34,7 +34,7 @@
 #app #notes-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
-  padding: 0 2rem;
+  padding: 0 2rem 2rem;
   gap: 2rem;
 }
 
@@ -90,7 +90,7 @@
 #app .note .ph-x:hover,
 #app .note .ph-file-plus:hover {
   transform: scale(1.5);
-  color: #e2e8f0;
+  color: #cbd1d9;
 }
 
 #app .note .ph-file-plus {
