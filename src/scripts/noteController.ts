@@ -1,6 +1,8 @@
-import { Note } from "../types/Note"
-import { copyNote, deleteNote, searchNotes, toggleFixNote, updateNote } from "./noteActions"
+import autoAnimate from "@formkit/auto-animate"
 
+import { Note } from "../types/Note"
+
+import { copyNote, deleteNote, searchNotes, toggleFixNote, updateNote } from "./noteActions"
 import { getNotes, saveNotes } from "./noteStorage"
 
 // Elements
@@ -9,10 +11,11 @@ const notesContainer = document.querySelector('#notes-container') as HTMLElement
 const noteInput = document.querySelector('#note-content') as HTMLInputElement
 const addNoteBtn = document.querySelector('.add-note') as HTMLButtonElement
 
+export const animate = autoAnimate(notesContainer)
 // Functions
 export function showNotes() {
   cleanNotes()
-
+  
   getNotes().forEach(note => {
     const noteElement = createNote(note.id, note.content, note.fixed)
     notesContainer.appendChild(noteElement)
@@ -20,6 +23,8 @@ export function showNotes() {
 }
 
 function addNote() {
+  animate.enable()
+
   const notes: Note[] = getNotes()
 
   const noteObject: Note = {
@@ -73,15 +78,21 @@ export function createNote(id: number, content: string, fixed?: boolean) {
     updateNote(id, textContent)
   })
 
-  element.querySelector('.ph-push-pin-simple')?.addEventListener('click', () => {
+  element.querySelector('.ph-push-pin-simple')?.addEventListener('click', () => {    
+    animate.disable()
+
     toggleFixNote(id)
   })
 
   element.querySelector('.ph-x')?.addEventListener('click', () => {
+    animate.enable()
+
     deleteNote(id, element, notesContainer)
   })
 
   element.querySelector('.ph-file-plus')?.addEventListener('click', () => {
+    animate.enable()
+
     copyNote(id, notesContainer)
   })
 
@@ -96,6 +107,8 @@ export function cleanNotes(){
 addNoteBtn.addEventListener('click', () => addNote())
 
 searchInput.addEventListener('keyup', (e) => {
+  animate.disable()
+
   const { value: search } = e.target as HTMLInputElement
   searchNotes(search, notesContainer)
 })
