@@ -12,6 +12,7 @@ Projeto bem legal, desenvolvido utilizando as seguintes tecnologias:
 
 ## Informações Úteis
 Para criação do projeto, foi utilizado o Vite.
+- Projeto no ar [aqui](https://devnotes-dusky.vercel.app/)
 
 ### Instalação
 - `npm install`
