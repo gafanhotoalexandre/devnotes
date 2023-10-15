@@ -7,3 +7,4 @@ import './css/note.css'
 // TS
 import './scripts/noteController'
 import './scripts/toggleTheme'
+import './scripts/exportNotes'
