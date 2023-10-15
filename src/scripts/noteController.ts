@@ -2,7 +2,13 @@ import autoAnimate from "@formkit/auto-animate"
 
 import { Note } from "../types/Note"
 
-import { copyNote, deleteNote, searchNotes, toggleFixNote, updateNote } from "./noteActions"
+import {
+  copyNote,
+  deleteNote,
+  searchNotes,
+  toggleFixNote,
+  updateNote
+} from "./noteActions"
 import { getNotes, saveNotes } from "./noteStorage"
 
 // Elements
@@ -19,7 +25,8 @@ export function showNotes() {
   getNotes().forEach(note => {
     const noteElement = createNote(note.id, note.content, note.fixed)
     notesContainer.appendChild(noteElement)
-  })
+  })   
+  
 }
 
 function addNote() {
