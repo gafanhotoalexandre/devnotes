@@ -23,6 +23,8 @@ async function exportData() {
   downloadLink.download = `notes_${new Date().toISOString()}.csv`
   downloadLink.click()
 
+  URL.revokeObjectURL(url)
+
   // const csvString = [
   //   ['ID','Conteúdo', 'Fixado?'],
   //   ...notes.map(note => [note.id, note.content, note.fixed])
