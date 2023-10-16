@@ -1,0 +1,20 @@
+@media (max-width: 450px) {
+  #app header {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  #app #search-container,
+  #app #search-input {
+    width: 100%;
+  }
+
+  #app #add-note-container {
+    width: 82%;
+  }
+
+  #app #notes-container {
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+}
