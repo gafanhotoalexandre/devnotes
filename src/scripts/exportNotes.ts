@@ -5,7 +5,7 @@ const exportBtn = document.querySelector('#export-notes') as HTMLButtonElement
 
 exportBtn.addEventListener('click', () => exportData())
 
-async function exportData() {
+function exportData() {
   const notes = getNotes()
 
   if (notes.length === 0) {
